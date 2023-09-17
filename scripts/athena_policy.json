@@ -1,0 +1,60 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Action": [
+                "athena:StartQueryExecution",
+                "athena:GetQueryResults",
+                "athena:GetWorkGroup",
+                "athena:StopQueryExecution",
+                "athena:GetQueryExecution",
+                "athena:ListNamedQueries",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:ListBucketMultipartUploads",
+                "s3:ListMultipartUploadParts",
+                "s3:AbortMultipartUpload",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::soldcastro-dados/Athena",
+                "arn:aws:s3:::soldcastro-dados/Athena/*",
+                "arn:aws:athena:us-east-2:031089101744:workgroup/a3data_challenge"
+            ]
+        },
+        {
+            "Sid": "Statement2",
+            "Effect": "Allow",
+            "Action": [
+                "glue:GetDatabases",
+                "glue:GetTables",
+                "glue:GetTable",
+                "athena:ListWorkGroups",
+                "s3:GetBucketLocation"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Statement3",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::soldcastro-dados"
+            ]
+        },
+        {
+            "Sid": "Statement4",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::soldcastro-dados/raw/*"
+            ]
+        }
+    ]
+}
